@@ -20,7 +20,7 @@
 #include <mach/socinfo.h>
 
 #include "devices.h"
-#include "board-m7.h"
+#include "board-m7wl.h"
 
 uint32_t max_gpu = 1;
 
@@ -258,7 +258,7 @@ static int __init read_max_gpu(char *gpu_oc)
 __setup("ocG=", read_max_gpu);
 /*end gpuoc*/
 
-void __init m7_init_gpu(void)
+void __init m7wl_init_gpu(void)
 {
 	unsigned int version = socinfo_get_version();
 	if (max_gpu == 0)

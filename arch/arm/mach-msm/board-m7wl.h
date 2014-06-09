@@ -31,7 +31,7 @@
 #define GPIO(x) (x)
 #define PMGPIO(x) (x)
 
-int __init m7_init_keypad(void);
+int __init m7wl_init_keypad(void);
 
 
 #define LCD_TE			GPIO(0)
@@ -125,20 +125,18 @@ int __init m7_init_keypad(void);
 #define APQ_BOOT_CONFIG_0	GPIO(87)
 #define HSIC_STROBE		GPIO(88)
 #define HSIC_DATA		GPIO(89)
-#define VREG_S4_1V8_PVT GPIO(28) 
 
 #define CAM_VCM_PD		PMGPIO(1)
 #define MHL_RSTz		PMGPIO(2)
 #define GYRO_INT		PMGPIO(3)
 #define CIR_LS_EN		PMGPIO(4)
-#define V_RAW_1V8_EN		PMGPIO(5)
+#define FRONT_CAM_ID		PMGPIO(5)
 #define COMPASS_AKM_INT		PMGPIO(6)
 #define USB1_HS_ID_GPIO		PMGPIO(7)
 #define BT_REG_ON		PMGPIO(8)
 #define V_AUD_HSMIC_2V85_EN	PMGPIO(9)
 #define AUD_HP_EN		PMGPIO(10)
 #define FLASH_RST		PMGPIO(11)
-#define V_CAM_1V8_EN		PMGPIO(12)
 #define JAC_CHG_BAT_EN		PMGPIO(13)
 #define BAT_CHG_JAC_EN		PMGPIO(14)
 #define USBz_AUDIO_SW		PMGPIO(15)
@@ -188,9 +186,9 @@ int __init m7_init_keypad(void);
 #endif
 
 extern struct pm8xxx_regulator_platform_data
-	m7_pm8921_regulator_pdata[] __devinitdata;
+	m7wl_pm8921_regulator_pdata[] __devinitdata;
 
-extern int m7_pm8921_regulator_pdata_len __devinitdata;
+extern int m7wl_pm8921_regulator_pdata_len __devinitdata;
 
 #define GPIO_VREG_ID_EXT_5V		0
 #define GPIO_VREG_ID_EXT_3P3V		1
@@ -198,42 +196,42 @@ extern int m7_pm8921_regulator_pdata_len __devinitdata;
 #define GPIO_VREG_ID_EXT_MPP8		3
 
 extern struct gpio_regulator_platform_data
-	m7_gpio_regulator_pdata[] __devinitdata;
+	m7wl_gpio_regulator_pdata[] __devinitdata;
 
 extern struct rpm_regulator_platform_data
-	m7_rpm_regulator_pdata __devinitdata;
+	m7wl_rpm_regulator_pdata __devinitdata;
 
-extern struct regulator_init_data m7_saw_regulator_pdata_8921_s5;
-extern struct regulator_init_data m7_saw_regulator_pdata_8921_s6;
-extern struct regulator_init_data m7_saw_regulator_pdata_8821_s0;
-extern struct regulator_init_data m7_saw_regulator_pdata_8821_s1;
+extern struct regulator_init_data m7wl_saw_regulator_pdata_8921_s5;
+extern struct regulator_init_data m7wl_saw_regulator_pdata_8921_s6;
+extern struct regulator_init_data m7wl_saw_regulator_pdata_8821_s0;
+extern struct regulator_init_data m7wl_saw_regulator_pdata_8821_s1;
 
 struct mmc_platform_data;
 int __init apq8064_add_sdcc(unsigned int controller,
 		struct mmc_platform_data *plat);
 
-void m7_init_mmc(void);
-int m7_wifi_init(void);
-void m7_init_gpiomux(void);
-void m7_init_pmic(void);
-void m7_init_pmic_register_cam_cb(void *cam_vcm_on_cb, void *cam_vcm_off_cb);
+void m7wl_init_mmc(void);
+int m7wl_wifi_init(void);
+void m7wl_init_gpiomux(void);
+void m7wl_init_pmic(void);
+void m7wl_init_pmic_register_cam_cb(void *cam_vcm_on_cb, void *cam_vcm_off_cb);
 
 #if 1	
-extern struct platform_device m7_msm_rawchip_device;
+extern struct platform_device m7wl_msm_rawchip_device;
 #endif
-void m7_init_cam(void);
+void m7wl_init_cam(void);
 
 #define APQ_8064_GSBI1_QUP_I2C_BUS_ID 0
 #define APQ_8064_GSBI3_QUP_I2C_BUS_ID 3
 #define APQ_8064_GSBI4_QUP_I2C_BUS_ID 4
 
-void m7_init_fb(void);
-void m7_allocate_fb_region(void);
-void m7_mdp_writeback(struct memtype_reserve *reserve_table);
+void m7wl_init_fb(void);
+void m7wl_allocate_fb_region(void);
+void m7wl_mdp_writeback(struct memtype_reserve *reserve_table);
 
-void m7_init_gpu(void);
-void m7_pm8xxx_gpio_mpp_init(void);
-void m7_usb_uart_switch(int nvbus);
+void m7wl_init_gpu(void);
+void m7wl_pm8xxx_gpio_mpp_init(void);
+void m7wl_usb_uart_switch(int nvbus);
 
 #ifdef CONFIG_RESET_BY_CABLE_IN
 void reset_dflipflop(void);
